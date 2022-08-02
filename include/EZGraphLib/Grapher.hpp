@@ -5,18 +5,22 @@
 #include <map>
 #include <string>
 
-#define MAX_CACHE_SIZE 430
+#define MAX_CACHE_SIZE 360
 #define GRAPH_TOP 40
 #define GRAPH_BOTTOM 215
 #define GRAPH_LEFT 25
 #define GRAPH_RIGHT 455
+#define MAX_DATA 14
 
+namespace graph {
+    
 class AsyncGrapher : public TaskWrapper {
     private: 
     std::map<std::string, std::vector<double>> container;
     std::map<std::string, uint32_t> colors;
     std::string title;
     okapi::QTime refreshRate;
+    int cnt;
 
     public: 
     /**
@@ -60,3 +64,5 @@ class AsyncGrapher : public TaskWrapper {
     protected:
     void loop() override;
 };
+
+} // namespace graph
