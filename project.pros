@@ -1,7 +1,7 @@
 {
     "py/object": "pros.conductor.project.Project",
     "py/state": {
-        "project_name": "EZGraphLib",
+        "project_name": "EZGraphLib_v2",
         "target": "v5",
         "templates": {
             "kernel": {

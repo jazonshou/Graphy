@@ -34,7 +34,7 @@
             "bin/main.cpp.o",
             "src\\main.cpp"
         ],
-        "directory": "C:\\Users\\24jasonz\\Desktop\\Vex\\Current-Code\\EZGraphLib",
+        "directory": "C:\\Users\\24jasonz\\Desktop\\Vex\\Current-Code\\EZGraphLib_v2",
         "file": "src\\main.cpp"
     },
     {
@@ -72,7 +72,7 @@
             "bin/EZGraphLib/TaskWrapper.cpp.o",
             "src\\EZGraphLib\\TaskWrapper.cpp"
         ],
-        "directory": "C:\\Users\\24jasonz\\Desktop\\Vex\\Current-Code\\EZGraphLib",
+        "directory": "C:\\Users\\24jasonz\\Desktop\\Vex\\Current-Code\\EZGraphLib_v2",
         "file": "src\\EZGraphLib\\TaskWrapper.cpp"
     },
     {
@@ -110,7 +110,7 @@
             "bin/EZGraphLib/Grapher.cpp.o",
             "src\\EZGraphLib\\Grapher.cpp"
         ],
-        "directory": "C:\\Users\\24jasonz\\Desktop\\Vex\\Current-Code\\EZGraphLib",
+        "directory": "C:\\Users\\24jasonz\\Desktop\\Vex\\Current-Code\\EZGraphLib_v2",
         "file": "src\\EZGraphLib\\Grapher.cpp"
     }
 ]
