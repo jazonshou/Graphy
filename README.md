@@ -15,17 +15,70 @@ Use the [PROS CLI](https://github.com/purduesigbots/pros-cli/releases) to instal
 
 ## Usage
 
-```python
-import foobar
+#### Example code: 
 
-# returns 'words'
-foobar.pluralize('word')
+```cpp
+#include "EZGraphLib/Grapher.hpp"
 
-# returns 'geese'
-foobar.pluralize('goose')
+// Create grapher
+std::shared_ptr<graph::AsyncGrapher> grapher(new graph::AsyncGrapher("Flywheel Velocity vs. Time"));
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+// Add data types
+grapher->addDataType("Desired Vel", COLOR_ORANGE);
+grapher->addDataType("Actual Vel", COLOR_AQUAMARINE);
+
+// Start grapher task
+grapher->startTask();
+
+while(true) {
+    // Update data
+    grapher->update("Desired Vel", DESIRED_VELOCITY);
+    grapher->update("Actual Vel", ACTUAL_VELOCITY);
+
+    pros::delay(10);
+}
+```
+
+#### Documentation: 
+
+```cpp
+/**
+ * @brief Construct a new Async Grapher object
+ *
+ * @param title graph title
+ * @param rate refresh rate
+ */
+AsyncGrapher(const std::string &title, const okapi::QTime &rate = 10 * okapi::millisecond);
+
+/**
+ * @brief Add new graph data type
+ *
+ * @param name data type name
+ * @param color line color
+ */
+void addDataType(const std::string &name, const uint32_t color);
+
+/**
+ * @brief Update graph
+ *
+ * @param name data type name
+ * @param val updated data value
+ */
+void update(const std::string &name, double val);
+
+/**
+ * @brief Set the refresh rate
+ *
+ * @param rate refresh rate
+ */
+void setRefreshRate(const okapi::QTime &rate);
+
+/**
+ * @brief Get the current refresh rate
+ *
+ * @return refresh rate
+ */
+okapi::QTime getRefreshRate();
 ```
 
 ## Contributing
