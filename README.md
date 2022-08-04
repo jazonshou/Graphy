@@ -2,7 +2,7 @@
 
 EZGraphLib is an open-source [PROS](https://pros.cs.purdue.edu/) library that simplifies graphing data on the [v5 brain](https://www.vexrobotics.com/276-4810.html). 
 
-<img src="IMG_3933.png" style="transform:rotate(180deg);">
+<img src="IMG_3933.png" width=100>
 
 ## Installation
 
