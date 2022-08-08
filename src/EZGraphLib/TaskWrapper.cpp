@@ -1,5 +1,7 @@
 #include "TaskWrapper.hpp"
 
+namespace graph {
+
 void TaskWrapper::loop() {
     throw "task loop isn't overridden!";
 }
@@ -30,3 +32,5 @@ void TaskWrapper::trampoline(void *iparam) {
         that->loop();
     }
 }
+
+}  // namespace graph

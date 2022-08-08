@@ -2,6 +2,8 @@
 #include "pros/rtos.hpp"
 #include <memory>
 
+namespace graph {
+
 /**
  * @brief Task wrapper from lib7842
  *
@@ -47,3 +49,5 @@ class TaskWrapper {
     static void trampoline(void *iparam);
     std::unique_ptr<pros::Task> task{nullptr};
 };
+
+}
