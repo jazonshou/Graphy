@@ -77,7 +77,7 @@ void opcontrol() {
 	std::shared_ptr<EKFFilter> kalmanFilter(new EKFFilter());
     std::shared_ptr<EmaFilter> emaFilter(new EmaFilter(0.1));
 
-    std::shared_ptr<graph::AsyncGrapher> grapher(new graph::AsyncGrapher("Flywheel Velocity vs. Time"));
+    std::shared_ptr<graphy::AsyncGrapher> grapher(new graphy::AsyncGrapher("Flywheel Velocity vs. Time"));
 
     grapher->addDataType("Ema Vel", COLOR_ORANGE);
     grapher->addDataType("Desired Vel", COLOR_AQUAMARINE);

@@ -1,27 +1,27 @@
-# EZGraphLib
+# Graphy
 
-EZGraphLib is an open-source [PROS](https://pros.cs.purdue.edu/) library that simplifies graphing data on the [v5 brain](https://www.vexrobotics.com/276-4810.html). 
+Graphy is an open-source [PROS](https://pros.cs.purdue.edu/) library that simplifies graphing data on the [v5 brain](https://www.vexrobotics.com/276-4810.html). 
 
 <img src="IMG_3933.png" width=500>
 
 ## Installation
 
-Use the [PROS CLI](https://github.com/purduesigbots/pros-cli/releases) to install EZGraphLib. If you installed PROS correctly, you should already have the PROS CLI. 
+Use the [PROS CLI](https://github.com/purduesigbots/pros-cli/releases) to install Graphy. If you installed PROS correctly, you should already have the PROS CLI. 
 
-1. Download ``EZGraphLib@LATEST_VERSION.zip`` (found [here](https://github.com/Yessir120/EZGraphLib/releases)) at the root of your project
-2. Run ``pros conductor fetch EZGraphLib@LATEST_VERSION.zip`` at the root of your project
-3. Run ``pros conductor apply EZGraphLib`` at the root of your project
-4. Add ``#include "EZGraphLib/Grapher.hpp"`` to your header file
+1. Download ``Graphy@LATEST_VERSION.zip`` (found [here](https://github.com/Yessir120/Graphy/releases)) at the root of your project
+2. Run ``pros conductor fetch Graphy@LATEST_VERSION.zip`` at the root of your project
+3. Run ``pros conductor apply Graphy`` at the root of your project
+4. Add ``#include "Graphy/Grapher.hpp"`` to your header file
 
 ## Usage
 
 #### Example code: 
 
 ```cpp
-#include "EZGraphLib/Grapher.hpp"
+#include "Graphy/Grapher.hpp"
 
 // Create grapher
-std::shared_ptr<graph::AsyncGrapher> grapher(new graph::AsyncGrapher("Flywheel Velocity vs. Time"));
+std::shared_ptr<graphy::AsyncGrapher> grapher(new graphy::AsyncGrapher("Flywheel Velocity vs. Time"));
 
 // Add data types
 grapher->addDataType("Desired Vel", COLOR_ORANGE);

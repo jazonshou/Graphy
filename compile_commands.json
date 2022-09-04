@@ -16,7 +16,7 @@
             "-isystemc:\\users\\24jasonz\\appdata\\local\\programs\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
             "-iquote./include/okapi/squiggles",
-            "-iquote./include/EZGraphLib/",
+            "-iquote./include/Graphy/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -31,11 +31,11 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/EZGraphLib/TaskWrapper.cpp.o",
-            "src\\EZGraphLib\\TaskWrapper.cpp"
+            "bin/Graphy/Grapher.cpp.o",
+            "src\\Graphy\\Grapher.cpp"
         ],
         "directory": "C:\\Users\\24jasonz\\Desktop\\Vex\\Current-Code\\EZGraphLib_v2",
-        "file": "src\\EZGraphLib\\TaskWrapper.cpp"
+        "file": "src\\Graphy\\Grapher.cpp"
     },
     {
         "arguments": [
@@ -92,7 +92,7 @@
             "-isystemc:\\users\\24jasonz\\appdata\\local\\programs\\pros\\toolchain\\usr\\bin\\../lib/gcc/arm-none-eabi/10.2.1/../../../../arm-none-eabi/include",
             "-iquote./include",
             "-iquote./include/okapi/squiggles",
-            "-iquote./include/EZGraphLib/",
+            "-iquote./include/Graphy/",
             "-mcpu=cortex-a9",
             "-mfpu=neon-fp16",
             "-mfloat-abi=softfp",
@@ -107,10 +107,10 @@
             "-funwind-tables",
             "--std=gnu++17",
             "-o",
-            "bin/EZGraphLib/Grapher.cpp.o",
-            "src\\EZGraphLib\\Grapher.cpp"
+            "bin/Graphy/TaskWrapper.cpp.o",
+            "src\\Graphy\\TaskWrapper.cpp"
         ],
         "directory": "C:\\Users\\24jasonz\\Desktop\\Vex\\Current-Code\\EZGraphLib_v2",
-        "file": "src\\EZGraphLib\\Grapher.cpp"
+        "file": "src\\Graphy\\TaskWrapper.cpp"
     }
 ]
