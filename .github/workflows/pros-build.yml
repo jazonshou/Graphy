@@ -1,0 +1,20 @@
+name: PROS Build Action
+
+on: [push, pull_request]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: GNU Arm Embedded Toolchain
+        # You may pin to the exact commit or the version.
+        # uses: ryanwinter/arm-none-eabi-gcc@0386a959c4de20e2d8700eebf332e790a1ad5af5
+        uses: ryanwinter/arm-none-eabi-gcc@v2.0.4
+        with:
+          # GNU Arm Embedded Toolchain release name, in the V-YYYY-qZ format (e.g. "9-2019-q4")
+          release: 10.3-2021.10
+      - name: Install PROS
+        run: pip install pros-cli
+      - name: Build Project
+        run: pros make --verbose
