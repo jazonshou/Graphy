@@ -1,3 +1,6 @@
+![GitHub](https://img.shields.io/github/license/Yessir120/Graphy?logo=Github)
+![GitHub all releases](https://img.shields.io/github/downloads/Yessir120/Graphy/total?color=orange&logo=Github)
+
 # Graphy
 
 Graphy is an open-source [PROS](https://pros.cs.purdue.edu/) library that simplifies graphing data on the [v5 brain](https://www.vexrobotics.com/276-4810.html). 
