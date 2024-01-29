@@ -4,7 +4,6 @@
 #include <string>
 
 #include "TaskWrapper.hpp"
-#include "okapi/api/units/QTime.hpp"
 #include "pros/screen.hpp"
 
 
@@ -22,7 +21,7 @@ class AsyncGrapher : public TaskWrapper {
     std::map<std::string, std::vector<double>> container;
     std::map<std::string, uint32_t> colors;
     std::string title;
-    okapi::QTime refreshRate;
+    uint refreshRate;
     int cnt;
 
     public:
@@ -32,7 +31,7 @@ class AsyncGrapher : public TaskWrapper {
      * @param title graph title
      * @param rate refresh rate
      */
-    AsyncGrapher(const std::string &title, const okapi::QTime &rate = 10 * okapi::millisecond);
+    AsyncGrapher(const std::string &title, const uint rate = 10);
 
     /**
      * @brief Add new graph data type
@@ -55,14 +54,14 @@ class AsyncGrapher : public TaskWrapper {
      *
      * @param rate refresh rate
      */
-    void setRefreshRate(const okapi::QTime &rate);
+    void setRefreshRate(const uint rate);
 
     /**
      * @brief Get the current refresh rate
      *
      * @return refresh rate
      */
-    okapi::QTime getRefreshRate();
+    uint getRefreshRate();
 
     protected:
     void loop() override;
