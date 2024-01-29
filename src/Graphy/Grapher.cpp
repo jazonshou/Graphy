@@ -2,7 +2,7 @@
 
 namespace graphy {
 
-AsyncGrapher::AsyncGrapher(const std::string &title, const uint rate) { 
+AsyncGrapher::AsyncGrapher(const std::string &title, const uint rate) {
     this->title = title;
     this->refreshRate = rate;
     cnt = 0;
@@ -18,11 +18,44 @@ void AsyncGrapher::addDataType(const std::string &name, const uint32_t color) {
     }
 }
 
-void AsyncGrapher::update(const std::string &name, double val) {
-    container[name].push_back(val);
+void AsyncGrapher::update(const std::string &name, double val, double maxValArg) {
+
+    static int maxVal = 1;
+
+    static int updateSize = 0;
+
+    if (val > maxVal && autoZoom) {
+        maxVal = val;
+        container[name].push_back(val / maxVal);
+        updateSize++;
+
+        // If it's gone through half the length of the graph (doesn't run constantly to save resources)
+        if (updateSize > MAX_CACHE_SIZE / 2) {
+            // Resets the variables.
+            maxVal = 1; 
+            updateSize = 0;
+
+            // Find the max value in the container, then continue graphing at that max value.
+            for (const auto &item : container) {
+                for (int i = 0; i < item.second.size(); i++) {
+                    double val1 = item.second[i];
+                    if (val1 > maxVal) {
+                        maxVal = val1;
+                    }
+                }
+            }
+        }
+    }
+    else {
+        container[name].push_back(val / maxValArg);
+    }
+
     if (container[name].size() > MAX_CACHE_SIZE) {
         container[name].erase(container[name].begin());
     }
+
+
+    
 }
 
 void AsyncGrapher::setRefreshRate(const uint rate) {
@@ -52,7 +85,7 @@ void AsyncGrapher::loop() {
                                 GRAPH_LEFT + MAX_CACHE_SIZE,
                                 (++indexLine) * 14 + 30,
                                 item.first.c_str());
-            for (int i = 0; i < item.second.size()-1; i++) {
+            for (int i = 0; i < item.second.size() - 1; i++) {
                 double val1 = item.second[i] * (GRAPH_BOTTOM - GRAPH_TOP);
                 double val2 = item.second[i + 1] * (GRAPH_BOTTOM - GRAPH_TOP);
                 pros::screen::draw_line(
@@ -64,4 +97,28 @@ void AsyncGrapher::loop() {
     }
 }
 
-}  // namespace graph
+std::map<std::string, std::vector<double>>& AsyncGrapher::getContainer() {
+
+    return container;
+    
+}
+
+void AsyncGrapher::activateAutoZoom() {
+    autoZoom = true;
+}
+
+void AsyncGrapher::deactivateAutoZoom() {
+    autoZoom = false;
+}
+
+void AsyncGrapher::insertNewGraph(std::pair<std::string, std::vector<double>>& newGraph, uint32_t color) {
+    if (cnt > MAX_DATA) {
+        std::runtime_error("Error: max number of data is 14");
+    } else {
+        cnt++;
+        container.insert({newGraph.first, newGraph.second});
+        colors.insert({newGraph.first, color});
+    }
+}
+
+}  // namespace graphy
