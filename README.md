@@ -51,7 +51,7 @@ while(true) {
  * @param title graph title
  * @param rate refresh rate
  */
-AsyncGrapher(const std::string &title, const okapi::QTime &rate = 10 * okapi::millisecond);
+AsyncGrapher(const std::string &title, const uint rate);
 
 /**
  * @brief Add new graph data type
@@ -74,14 +74,14 @@ void update(const std::string &name, double val);
  *
  * @param rate refresh rate
  */
-void setRefreshRate(const okapi::QTime &rate);
+void setRefreshRate(const uint rate);
 
 /**
  * @brief Get the current refresh rate
  *
  * @return refresh rate
  */
-okapi::QTime getRefreshRate();
+uint getRefreshRate();
 ```
 
 ## Contributing
