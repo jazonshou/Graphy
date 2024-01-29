@@ -2,7 +2,7 @@
 
 namespace graphy {
 
-AsyncGrapher::AsyncGrapher(const std::string &title, const okapi::QTime &rate) {
+AsyncGrapher::AsyncGrapher(const std::string &title, const uint rate) { 
     this->title = title;
     this->refreshRate = rate;
     cnt = 0;
@@ -25,11 +25,11 @@ void AsyncGrapher::update(const std::string &name, double val) {
     }
 }
 
-void AsyncGrapher::setRefreshRate(const okapi::QTime &rate) {
+void AsyncGrapher::setRefreshRate(const uint rate) {
     this->refreshRate = rate;
 }
 
-okapi::QTime AsyncGrapher::getRefreshRate() {
+uint AsyncGrapher::getRefreshRate() {
     return this->refreshRate;
 }
 
@@ -60,7 +60,7 @@ void AsyncGrapher::loop() {
             }
         }
 
-        pros::delay(refreshRate.convert(okapi::millisecond));
+        pros::delay(refreshRate);
     }
 }
 
