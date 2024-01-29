@@ -82,6 +82,9 @@ void opcontrol() {
     grapher->addDataType("Ema Vel", COLOR_ORANGE);
     grapher->addDataType("Desired Vel", COLOR_AQUAMARINE);
     grapher->addDataType("Kalman Vel", COLOR_RED);
+
+    grapher->activateAutoZoom();
+    
     grapher->startTask();
     pros::ADIAnalogIn pot('A');
     while(true) {
