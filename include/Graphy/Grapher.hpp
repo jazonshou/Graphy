@@ -47,6 +47,7 @@ class AsyncGrapher : public TaskWrapper {
      *
      * @param name data type name
      * @param val updated data value
+     * @param maxValArg Value that the "val" gets divided by for placement on the graph.
      */
     void update(const std::string &name, double val, double maxValArg = 1);
 
