@@ -23,6 +23,7 @@ class AsyncGrapher : public TaskWrapper {
     std::string title;
     uint refreshRate;
     int cnt;
+    bool autoZoom = true;
 
     public:
     /**
@@ -46,8 +47,9 @@ class AsyncGrapher : public TaskWrapper {
      *
      * @param name data type name
      * @param val updated data value
+     * @param maxValArg Value that the "val" gets divided by for placement on the graph.
      */
-    void update(const std::string &name, double val);
+    void update(const std::string &name, double val, double maxValArg = 1);
 
     /**
      * @brief Set the refresh rate
@@ -62,6 +64,34 @@ class AsyncGrapher : public TaskWrapper {
      * @return refresh rate
      */
     uint getRefreshRate();
+
+    
+    /**
+     * @brief Get the Container of all values for the graphs
+     * 
+     * @return std::map<std::string, std::vector<double>>* 
+     */
+    std::map<std::string, std::vector<double>>& getContainer();
+
+    /**
+     * @brief If you have data points you want to plot, you can directly input them
+     * with this function.
+     * 
+     * @param An std::pair to a string and then your data points
+     */
+    void insertNewGraph(std::pair<std::string, std::vector<double>>& newGraph, uint32_t color = COLOR_CORNFLOWER_BLUE);
+
+    /**
+     * @brief Make the graph automatically zoom in. Max value of the graph is at the top.
+     * 
+     */
+    void activateAutoZoom();  
+
+    /**
+     * @brief Turns off auto zoom. All updates have to be divided by the max value.
+     * 
+     */
+    void deactivateAutoZoom();
 
     protected:
     void loop() override;
