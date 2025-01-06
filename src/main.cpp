@@ -74,23 +74,20 @@ void autonomous() {}
  * task, not resume it from where it left off.
  */
 void opcontrol() {
-	std::shared_ptr<EKFFilter> kalmanFilter(new EKFFilter());
-    std::shared_ptr<EmaFilter> emaFilter(new EmaFilter(0.1));
+	pros::Controller master(pros::E_CONTROLLER_MASTER);
+	pros::Motor left_mtr(1);
+	pros::Motor right_mtr(2);
 
-    std::shared_ptr<graphy::AsyncGrapher> grapher(new graphy::AsyncGrapher("Flywheel Velocity vs. Time"));
+	while (true) {
+		pros::lcd::print(0, "%d %d %d", (pros::lcd::read_buttons() & LCD_BTN_LEFT) >> 2,
+		                 (pros::lcd::read_buttons() & LCD_BTN_CENTER) >> 1,
+		                 (pros::lcd::read_buttons() & LCD_BTN_RIGHT) >> 0);
+		int left = master.get_analog(ANALOG_LEFT_Y);
+		int right = master.get_analog(ANALOG_RIGHT_Y);
 
-    grapher->addDataType("Ema Vel", COLOR_ORANGE);
-    grapher->addDataType("Desired Vel", COLOR_AQUAMARINE);
-    grapher->addDataType("Kalman Vel", COLOR_RED);
+		left_mtr = left;
+		right_mtr = right;
 
-    grapher->activateAutoZoom();
-    
-    grapher->startTask();
-    pros::ADIAnalogIn pot('A');
-    while(true) {
-        grapher->update("Desired Vel", ((pot.get_value()-10) / 4095.0));
-        grapher->update("Kalman Vel", kalmanFilter->filter(((pot.get_value()-10) / 4095.0)));
-        grapher->update("Ema Vel", emaFilter->filter(((pot.get_value()-10) / 4095.0)));
-        pros::delay(10);
-    }
+		pros::delay(20);
+	}
 }
