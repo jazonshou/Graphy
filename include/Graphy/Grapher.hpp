@@ -79,7 +79,7 @@ class AsyncGrapher : public TaskWrapper {
      * 
      * @param An std::pair to a string and then your data points
      */
-    void insertNewGraph(std::pair<std::string, std::vector<double>>& newGraph, uint32_t color = COLOR_CORNFLOWER_BLUE);
+    void insertNewGraph(std::pair<std::string, std::vector<double>>& newGraph, uint32_t color = pros::c::COLOR_CORNFLOWER_BLUE);
 
     /**
      * @brief Make the graph automatically zoom in. Max value of the graph is at the top.

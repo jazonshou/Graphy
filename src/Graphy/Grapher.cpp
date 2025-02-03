@@ -72,7 +72,7 @@ void AsyncGrapher::loop() {
         pros::screen::erase();
 
         // Draw graph
-        pros::screen::set_pen(COLOR_WHITE);
+        pros::screen::set_pen(pros::c::COLOR_WHITE);
         pros::screen::print(pros::text_format_e_t::E_TEXT_MEDIUM_CENTER, 1, title.c_str());
         pros::screen::draw_line(GRAPH_LEFT, GRAPH_TOP, GRAPH_LEFT, GRAPH_BOTTOM);
         pros::screen::draw_line(
