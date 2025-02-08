@@ -24,11 +24,12 @@ Use the [PROS CLI](https://github.com/purduesigbots/pros-cli/releases) to instal
 #include "Graphy/Grapher.hpp"
 
 // Create grapher
-std::shared_ptr<graphy::AsyncGrapher> grapher(new graphy::AsyncGrapher("Flywheel Velocity vs. Time"));
+std::shared_ptr<graphy::AsyncGrapher> grapher(
+    new graphy::AsyncGrapher("Flywheel Velocity vs. Time"));
 
 // Add data types
-grapher->addDataType("Desired Vel", COLOR_ORANGE);
-grapher->addDataType("Actual Vel", COLOR_AQUAMARINE);
+grapher->addDataType("Desired Vel", pros::c::COLOR_ORANGE);
+grapher->addDataType("Actual Vel", pros::c::COLOR_AQUAMARINE);
 
 // Start grapher task
 grapher->startTask();
